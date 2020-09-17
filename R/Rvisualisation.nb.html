@@ -206,7 +206,7 @@ $(document).ready(function () {
 </style>
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Rvisualisation.Rmd");
+  window.initializeSourceEmbed("Rvisualisation.md");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
@@ -243,16 +243,9 @@ $(document).ready(function () {
 </div>
 
 
-<!-- rnb-text-begin -->
 <p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<pre class="{r}"><code>plot(cars)</code></pre>
 <p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
 <p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
@@ -277,7 +270,6 @@ $(document).ready(function () {
 <p>grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )</p>
 <p>sex_boxplot = ggplot(insurance, aes(x=sex, y=charges)) + geom_boxplot() region_boxplot = ggplot(insurance, aes(x=region, y=charges)) + geom_boxplot() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) children_boxplot = ggplot(insurance, aes(x=as.factor(children), y=charges)) + geom_boxplot() + labs(x=“# of children”) smoker_boxplot = ggplot(insurance, aes(x=smoker, y=charges)) + geom_boxplot()</p>
 <p>grid.arrange(children_boxplot, sex_boxplot, smoker_boxplot, region_boxplot, ncol=2 )</p>
-<!-- rnb-text-end -->
 </div>
 
 <div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0KDQoNCiMgRGF0YSBleHRyYWN0aW9uLCB0cmFuc2Zvcm1hdGlvbiBhbmQgbG9hZGluZw0KDQojIyBQYWNrYWdlcyBsb2FkZWQNCg0KI0RhdGEgdmlzdWFsaXNhdGlvbg0KaWYgKCFyZXF1aXJlKCJnZ3Bsb3QyIikpIHsNCiAgaW5zdGFsbC5wYWNrYWdlcygiZ2dwbG90MiIsIGRlcGVuZGVuY2llcyA9IFRSVUUpDQogIGxpYnJhcnkoZ2dwbG90MikNCiAgY2l0YXRpb24oImdncGxvdDIiKQ0KfQ0KDQojIyBEYXRhIGxvYWRpbmcNCmluc3VyYW5jZSA9IHJlYWQuY3N2KCJEYXRhL2luc3VyYW5jZS5jc3YiKQ0KaGVhZChpbnN1cmFuY2UpDQoNCiMgVmlzdWFsaXphdGlvbg0KDQpsaWJyYXJ5KGdncGxvdDIpDQpsaWJyYXJ5KGdyaWRFeHRyYSkNCg0KYm1pX3Bsb3QgPSBxcGxvdChibWksIGNoYXJnZXMsIGRhdGEgPSBpbnN1cmFuY2UsIHhsYWIgPSAiQk1JIiwgeWxhYiA9ICJDaGFyZ2VzIikgKyBnZW9tX3ZsaW5lKHhpbnRlcmNlcHQgPSAxOC41LCBjb2xvciA9ICJyZWQiKSArIGdlb21fdmxpbmUoeGludGVyY2VwdCA9IDI0LjksIGNvbG9yID0gInJlZCIpDQphZ2VfcGxvdCA9IHFwbG90KGFnZSwgY2hhcmdlcywgZGF0YSA9IGluc3VyYW5jZSwgeGxhYiA9ICJBZ2UiLCB5bGFiID0gIkNoYXJnZXMiLCBjb2wgPSBzZXgpDQpzZXhfcGxvdCA9IHFwbG90KHNleCwgY2hhcmdlcywgZGF0YSA9IGluc3VyYW5jZSwgeGxhYiA9ICJBZ2UiLCB5bGFiID0gIkNoYXJnZXMiKQ0KDQpncmlkLmFycmFuZ2UoYm1pX3Bsb3QsIGFnZV9wbG90LCBzZXhfcGxvdCwgbmNvbD0xICkNCg0KDQoNCg0KDQpzZXhfYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PXNleCwgeT1jaGFyZ2VzKSkgKyBnZW9tX2JveHBsb3QoKQ0KcmVnaW9uX2JveHBsb3QgPSBnZ3Bsb3QoaW5zdXJhbmNlLCBhZXMoeD1yZWdpb24sIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkgKyB0aGVtZShheGlzLnRleHQueCA9IGVsZW1lbnRfdGV4dChhbmdsZSA9IDkwLCBoanVzdCA9IDEpKQ0KY2hpbGRyZW5fYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PWFzLmZhY3RvcihjaGlsZHJlbiksIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkgKyBsYWJzKHg9IiMgb2YgY2hpbGRyZW4iKQ0Kc21va2VyX2JveHBsb3QgPSBnZ3Bsb3QoaW5zdXJhbmNlLCBhZXMoeD1zbW9rZXIsIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkNCg0KZ3JpZC5hcnJhbmdlKGNoaWxkcmVuX2JveHBsb3QsIHNleF9ib3hwbG90LCBzbW9rZXJfYm94cGxvdCwgcmVnaW9uX2JveHBsb3QsIG5jb2w9MiApDQoNCg0K</div>
