@@ -46,7 +46,8 @@ bmi_plot = qplot(bmi, charges, data = insurance, xlab = "BMI", ylab = "Charges")
 age_plot = qplot(age, charges, data = insurance, xlab = "Age", ylab = "Charges", col = sex)
 sex_plot = qplot(sex, charges, data = insurance, xlab = "Age", ylab = "Charges")
 
-grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )
+plot1 = grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )
+plot1
 ```
 
 
