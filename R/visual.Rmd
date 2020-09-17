@@ -28,23 +28,17 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ## Packages loaded
 
-#Data visualisation
-```{r}
-if (!require("ggplot2")) {
-  install.packages("ggplot2", dependencies = TRUE)
-  library(ggplot2)
-  citation("ggplot2")
-}
-```
+
 
 ## Data loading
-```{r}
-insurance = read.csv("Data/insurance.csv")
+```{r import data}
+insurance = read.csv("c:/users/denat/ProjectBiBC/Data/insurance.csv")
 head(insurance)
 ```
 
 # Visualization
 ```{r}
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 library(ggplot2)
 library(gridExtra)
 
