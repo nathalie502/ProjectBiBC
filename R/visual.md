@@ -52,22 +52,11 @@ install.packages("ggplot2", repos = "http://cran.us.r-project.org")
     ## Installing package into 'C:/Users/denat/OneDrive/Documents/R/win-library/3.5'
     ## (as 'lib' is unspecified)
 
-    ## also installing the dependencies 'isoband', 'rlang'
-
     ## 
-    ##   There are binary versions available but the source versions are
+    ##   There is a binary version available but the source version is
     ##   later:
     ##         binary source needs_compilation
-    ## isoband  0.2.1  0.2.2              TRUE
-    ## rlang    0.4.5  0.4.7              TRUE
     ## ggplot2  3.3.0  3.3.2             FALSE
-    ## 
-    ##   Binaries will be installed
-    ## package 'isoband' successfully unpacked and MD5 sums checked
-    ## package 'rlang' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\denat\AppData\Local\Temp\Rtmpwr7NlX\downloaded_packages
 
     ## installing the source package 'ggplot2'
 
@@ -75,16 +64,8 @@ install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 library(ggplot2)
 library(gridExtra)
 
-(bmi_plot = qplot(bmi, charges, data = insurance, xlab = "BMI", ylab = "Charges") + geom_vline(xintercept = 18.5, color = "red") + geom_vline(xintercept = 24.9, color = "red"))
+bmi_plot = qplot(bmi, charges, data = insurance, xlab = "BMI", ylab = "Charges") + geom_vline(xintercept = 18.5, color = "red") + geom_vline(xintercept = 24.9, color = "red")
 ```
-
-![](visual_files/figure-markdown_github/unnamed-chunk-1-1.png)
-
-``` r
-bmi_plot
-```
-
-![](visual_files/figure-markdown_github/unnamed-chunk-1-2.png)
 
 ![](visual_files/figure-markdown_github/bmi_plot-1.png)
 
