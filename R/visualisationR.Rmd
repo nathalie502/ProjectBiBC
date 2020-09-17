@@ -1,6 +1,11 @@
 ---
-title: "visualisationR"
-output: html_document
+title: "R Notebook for visualisations"
+output: 
+  github_document:
+    toc: true
+    toc_depth: 3
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
