@@ -43,6 +43,7 @@ library(ggplot2)
 library(gridExtra)
 
 bmi_plot = qplot(bmi, charges, data = insurance, xlab = "BMI", ylab = "Charges") + geom_vline(xintercept = 18.5, color = "red") + geom_vline(xintercept = 24.9, color = "red")
+bmi_plot
 age_plot = qplot(age, charges, data = insurance, xlab = "Age", ylab = "Charges", col = sex)
 sex_plot = qplot(sex, charges, data = insurance, xlab = "Age", ylab = "Charges")
 
