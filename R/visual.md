@@ -46,21 +46,6 @@ Visualization
 =============
 
 ``` r
-install.packages("ggplot2", repos = "http://cran.us.r-project.org")
-```
-
-    ## Installing package into 'C:/Users/denat/OneDrive/Documents/R/win-library/3.5'
-    ## (as 'lib' is unspecified)
-
-    ## 
-    ##   There is a binary version available but the source version is
-    ##   later:
-    ##         binary source needs_compilation
-    ## ggplot2  3.3.0  3.3.2             FALSE
-
-    ## installing the source package 'ggplot2'
-
-``` r
 library(ggplot2)
 library(gridExtra)
 
@@ -77,16 +62,6 @@ plot1 = grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )
 ```
 
 ![](visual_files/figure-markdown_github/unnamed-chunk-2-1.png)
-
-``` r
-plot1
-```
-
-    ## TableGrob (3 x 1) "arrange": 3 grobs
-    ##   z     cells    name           grob
-    ## 1 1 (1-1,1-1) arrange gtable[layout]
-    ## 2 2 (2-2,1-1) arrange gtable[layout]
-    ## 3 3 (3-3,1-1) arrange gtable[layout]
 
 ``` r
 sex_boxplot = ggplot(insurance, aes(x=sex, y=charges)) + geom_boxplot()

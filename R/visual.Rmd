@@ -38,7 +38,7 @@ head(insurance)
 
 # Visualization
 ```{r}
-install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+
 library(ggplot2)
 library(gridExtra)
 
@@ -54,7 +54,6 @@ age_plot = qplot(age, charges, data = insurance, xlab = "Age", ylab = "Charges",
 sex_plot = qplot(sex, charges, data = insurance, xlab = "Age", ylab = "Charges")
 
 plot1 = grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )
-plot1
 ```
 
 
