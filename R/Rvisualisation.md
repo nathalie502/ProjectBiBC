@@ -23,18 +23,22 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ## Packages loaded
 
 #Data visualisation
+```{r}
 if (!require("ggplot2")) {
   install.packages("ggplot2", dependencies = TRUE)
   library(ggplot2)
   citation("ggplot2")
 }
+```
 
 ## Data loading
+```{r}
 insurance = read.csv("Data/insurance.csv")
 head(insurance)
+```
 
 # Visualization
-
+```{r}
 library(ggplot2)
 library(gridExtra)
 
@@ -43,16 +47,18 @@ age_plot = qplot(age, charges, data = insurance, xlab = "Age", ylab = "Charges",
 sex_plot = qplot(sex, charges, data = insurance, xlab = "Age", ylab = "Charges")
 
 grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )
+```
 
 
 
-
-
+```{r}
 sex_boxplot = ggplot(insurance, aes(x=sex, y=charges)) + geom_boxplot()
 region_boxplot = ggplot(insurance, aes(x=region, y=charges)) + geom_boxplot() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 children_boxplot = ggplot(insurance, aes(x=as.factor(children), y=charges)) + geom_boxplot() + labs(x="# of children")
 smoker_boxplot = ggplot(insurance, aes(x=smoker, y=charges)) + geom_boxplot()
 
 grid.arrange(children_boxplot, sex_boxplot, smoker_boxplot, region_boxplot, ncol=2 )
+```
+
 
 

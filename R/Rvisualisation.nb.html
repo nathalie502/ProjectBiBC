@@ -257,22 +257,36 @@ $(document).ready(function () {
 </div>
 <div id="data-visualisation" class="section level1">
 <h1>Data visualisation</h1>
-<p>if (!require(“ggplot2”)) { install.packages(“ggplot2”, dependencies = TRUE) library(ggplot2) citation(“ggplot2”) }</p>
+<pre class="{r}"><code>if (!require(&quot;ggplot2&quot;)) {
+  install.packages(&quot;ggplot2&quot;, dependencies = TRUE)
+  library(ggplot2)
+  citation(&quot;ggplot2&quot;)
+}</code></pre>
 <div id="data-loading" class="section level2">
 <h2>Data loading</h2>
-<p>insurance = read.csv(“Data/insurance.csv”) head(insurance)</p>
+<pre class="{r}"><code>insurance = read.csv(&quot;Data/insurance.csv&quot;)
+head(insurance)</code></pre>
 </div>
 </div>
 <div id="visualization" class="section level1">
 <h1>Visualization</h1>
-<p>library(ggplot2) library(gridExtra)</p>
-<p>bmi_plot = qplot(bmi, charges, data = insurance, xlab = “BMI”, ylab = “Charges”) + geom_vline(xintercept = 18.5, color = “red”) + geom_vline(xintercept = 24.9, color = “red”) age_plot = qplot(age, charges, data = insurance, xlab = “Age”, ylab = “Charges”, col = sex) sex_plot = qplot(sex, charges, data = insurance, xlab = “Age”, ylab = “Charges”)</p>
-<p>grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )</p>
-<p>sex_boxplot = ggplot(insurance, aes(x=sex, y=charges)) + geom_boxplot() region_boxplot = ggplot(insurance, aes(x=region, y=charges)) + geom_boxplot() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) children_boxplot = ggplot(insurance, aes(x=as.factor(children), y=charges)) + geom_boxplot() + labs(x=“# of children”) smoker_boxplot = ggplot(insurance, aes(x=smoker, y=charges)) + geom_boxplot()</p>
-<p>grid.arrange(children_boxplot, sex_boxplot, smoker_boxplot, region_boxplot, ncol=2 )</p>
+<pre class="{r}"><code>library(ggplot2)
+library(gridExtra)
+
+bmi_plot = qplot(bmi, charges, data = insurance, xlab = &quot;BMI&quot;, ylab = &quot;Charges&quot;) + geom_vline(xintercept = 18.5, color = &quot;red&quot;) + geom_vline(xintercept = 24.9, color = &quot;red&quot;)
+age_plot = qplot(age, charges, data = insurance, xlab = &quot;Age&quot;, ylab = &quot;Charges&quot;, col = sex)
+sex_plot = qplot(sex, charges, data = insurance, xlab = &quot;Age&quot;, ylab = &quot;Charges&quot;)
+
+grid.arrange(bmi_plot, age_plot, sex_plot, ncol=1 )</code></pre>
+<pre class="{r}"><code>sex_boxplot = ggplot(insurance, aes(x=sex, y=charges)) + geom_boxplot()
+region_boxplot = ggplot(insurance, aes(x=region, y=charges)) + geom_boxplot() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+children_boxplot = ggplot(insurance, aes(x=as.factor(children), y=charges)) + geom_boxplot() + labs(x=&quot;# of children&quot;)
+smoker_boxplot = ggplot(insurance, aes(x=smoker, y=charges)) + geom_boxplot()
+
+grid.arrange(children_boxplot, sex_boxplot, smoker_boxplot, region_boxplot, ncol=2 )</code></pre>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0KDQoNCiMgRGF0YSBleHRyYWN0aW9uLCB0cmFuc2Zvcm1hdGlvbiBhbmQgbG9hZGluZw0KDQojIyBQYWNrYWdlcyBsb2FkZWQNCg0KI0RhdGEgdmlzdWFsaXNhdGlvbg0KaWYgKCFyZXF1aXJlKCJnZ3Bsb3QyIikpIHsNCiAgaW5zdGFsbC5wYWNrYWdlcygiZ2dwbG90MiIsIGRlcGVuZGVuY2llcyA9IFRSVUUpDQogIGxpYnJhcnkoZ2dwbG90MikNCiAgY2l0YXRpb24oImdncGxvdDIiKQ0KfQ0KDQojIyBEYXRhIGxvYWRpbmcNCmluc3VyYW5jZSA9IHJlYWQuY3N2KCJEYXRhL2luc3VyYW5jZS5jc3YiKQ0KaGVhZChpbnN1cmFuY2UpDQoNCiMgVmlzdWFsaXphdGlvbg0KDQpsaWJyYXJ5KGdncGxvdDIpDQpsaWJyYXJ5KGdyaWRFeHRyYSkNCg0KYm1pX3Bsb3QgPSBxcGxvdChibWksIGNoYXJnZXMsIGRhdGEgPSBpbnN1cmFuY2UsIHhsYWIgPSAiQk1JIiwgeWxhYiA9ICJDaGFyZ2VzIikgKyBnZW9tX3ZsaW5lKHhpbnRlcmNlcHQgPSAxOC41LCBjb2xvciA9ICJyZWQiKSArIGdlb21fdmxpbmUoeGludGVyY2VwdCA9IDI0LjksIGNvbG9yID0gInJlZCIpDQphZ2VfcGxvdCA9IHFwbG90KGFnZSwgY2hhcmdlcywgZGF0YSA9IGluc3VyYW5jZSwgeGxhYiA9ICJBZ2UiLCB5bGFiID0gIkNoYXJnZXMiLCBjb2wgPSBzZXgpDQpzZXhfcGxvdCA9IHFwbG90KHNleCwgY2hhcmdlcywgZGF0YSA9IGluc3VyYW5jZSwgeGxhYiA9ICJBZ2UiLCB5bGFiID0gIkNoYXJnZXMiKQ0KDQpncmlkLmFycmFuZ2UoYm1pX3Bsb3QsIGFnZV9wbG90LCBzZXhfcGxvdCwgbmNvbD0xICkNCg0KDQoNCg0KDQpzZXhfYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PXNleCwgeT1jaGFyZ2VzKSkgKyBnZW9tX2JveHBsb3QoKQ0KcmVnaW9uX2JveHBsb3QgPSBnZ3Bsb3QoaW5zdXJhbmNlLCBhZXMoeD1yZWdpb24sIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkgKyB0aGVtZShheGlzLnRleHQueCA9IGVsZW1lbnRfdGV4dChhbmdsZSA9IDkwLCBoanVzdCA9IDEpKQ0KY2hpbGRyZW5fYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PWFzLmZhY3RvcihjaGlsZHJlbiksIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkgKyBsYWJzKHg9IiMgb2YgY2hpbGRyZW4iKQ0Kc21va2VyX2JveHBsb3QgPSBnZ3Bsb3QoaW5zdXJhbmNlLCBhZXMoeD1zbW9rZXIsIHk9Y2hhcmdlcykpICsgZ2VvbV9ib3hwbG90KCkNCg0KZ3JpZC5hcnJhbmdlKGNoaWxkcmVuX2JveHBsb3QsIHNleF9ib3hwbG90LCBzbW9rZXJfYm94cGxvdCwgcmVnaW9uX2JveHBsb3QsIG5jb2w9MiApDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0KDQoNCiMgRGF0YSBleHRyYWN0aW9uLCB0cmFuc2Zvcm1hdGlvbiBhbmQgbG9hZGluZw0KDQojIyBQYWNrYWdlcyBsb2FkZWQNCg0KI0RhdGEgdmlzdWFsaXNhdGlvbg0KYGBge3J9DQppZiAoIXJlcXVpcmUoImdncGxvdDIiKSkgew0KICBpbnN0YWxsLnBhY2thZ2VzKCJnZ3Bsb3QyIiwgZGVwZW5kZW5jaWVzID0gVFJVRSkNCiAgbGlicmFyeShnZ3Bsb3QyKQ0KICBjaXRhdGlvbigiZ2dwbG90MiIpDQp9DQpgYGANCg0KIyMgRGF0YSBsb2FkaW5nDQpgYGB7cn0NCmluc3VyYW5jZSA9IHJlYWQuY3N2KCJEYXRhL2luc3VyYW5jZS5jc3YiKQ0KaGVhZChpbnN1cmFuY2UpDQpgYGANCg0KIyBWaXN1YWxpemF0aW9uDQpgYGB7cn0NCmxpYnJhcnkoZ2dwbG90MikNCmxpYnJhcnkoZ3JpZEV4dHJhKQ0KDQpibWlfcGxvdCA9IHFwbG90KGJtaSwgY2hhcmdlcywgZGF0YSA9IGluc3VyYW5jZSwgeGxhYiA9ICJCTUkiLCB5bGFiID0gIkNoYXJnZXMiKSArIGdlb21fdmxpbmUoeGludGVyY2VwdCA9IDE4LjUsIGNvbG9yID0gInJlZCIpICsgZ2VvbV92bGluZSh4aW50ZXJjZXB0ID0gMjQuOSwgY29sb3IgPSAicmVkIikNCmFnZV9wbG90ID0gcXBsb3QoYWdlLCBjaGFyZ2VzLCBkYXRhID0gaW5zdXJhbmNlLCB4bGFiID0gIkFnZSIsIHlsYWIgPSAiQ2hhcmdlcyIsIGNvbCA9IHNleCkNCnNleF9wbG90ID0gcXBsb3Qoc2V4LCBjaGFyZ2VzLCBkYXRhID0gaW5zdXJhbmNlLCB4bGFiID0gIkFnZSIsIHlsYWIgPSAiQ2hhcmdlcyIpDQoNCmdyaWQuYXJyYW5nZShibWlfcGxvdCwgYWdlX3Bsb3QsIHNleF9wbG90LCBuY29sPTEgKQ0KYGBgDQoNCg0KDQpgYGB7cn0NCnNleF9ib3hwbG90ID0gZ2dwbG90KGluc3VyYW5jZSwgYWVzKHg9c2V4LCB5PWNoYXJnZXMpKSArIGdlb21fYm94cGxvdCgpDQpyZWdpb25fYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PXJlZ2lvbiwgeT1jaGFyZ2VzKSkgKyBnZW9tX2JveHBsb3QoKSArIHRoZW1lKGF4aXMudGV4dC54ID0gZWxlbWVudF90ZXh0KGFuZ2xlID0gOTAsIGhqdXN0ID0gMSkpDQpjaGlsZHJlbl9ib3hwbG90ID0gZ2dwbG90KGluc3VyYW5jZSwgYWVzKHg9YXMuZmFjdG9yKGNoaWxkcmVuKSwgeT1jaGFyZ2VzKSkgKyBnZW9tX2JveHBsb3QoKSArIGxhYnMoeD0iIyBvZiBjaGlsZHJlbiIpDQpzbW9rZXJfYm94cGxvdCA9IGdncGxvdChpbnN1cmFuY2UsIGFlcyh4PXNtb2tlciwgeT1jaGFyZ2VzKSkgKyBnZW9tX2JveHBsb3QoKQ0KDQpncmlkLmFycmFuZ2UoY2hpbGRyZW5fYm94cGxvdCwgc2V4X2JveHBsb3QsIHNtb2tlcl9ib3hwbG90LCByZWdpb25fYm94cGxvdCwgbmNvbD0yICkNCmBgYA0KDQoNCg0K</div>
 
 
 
